@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<section style="margin-top: 100px; margin-bottom: 200px;">
+    <div>
+        <h1 class="h1_enroll">Select class for attandance</h1>
+    </div>
+    <div class="container-fluid">
+        <div class="text-center">
+            {% for item in students_class %}
+            <div style="margin-top: 5px; background-color: rgb(197, 197, 197);" class="row">
+                <div class="col-6" style=" font-weight: bolder; font-size: 25px;">{{ item.title }}</div>
+                <div class="col-6"><a href="{% url 'add_student_attandance' item.id %}" class="btn btn-primary">Select</a></div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+</section>
+
+
+
+
+
+
+
+
+{% endblock %}

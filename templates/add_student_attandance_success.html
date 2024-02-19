@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+<section style="margin-top: 100px; margin-bottom: 100px;">
+    <center>
+        <div class="img-fluid">
+            <img src="{% static 'img/name.png' %}" alt="" class="img-fluid" style=" margin-top: 80px; width: 80%;">
+        </div>
+    
+    </center>
+    <center>
+        <div class="text-center" style="margin-top: 50px; color: navy;"><h2>Add attandance successful</h2></div>
+        <div><a href="{% url 'profile_teacher' %}" class="btn btn-success" style="margin-top: 20px; margin-bottom: 20px; width: 200px;">Go to profile</a></div>
+    </center>
+</section>
+
+
+{% endblock %}

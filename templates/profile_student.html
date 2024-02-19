@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<div class="content-section" style="margin-top: 100px;">
+  <center>
+    <div class="media">
+      <img class="rounded-circle account-img" src="{{ student.image.url }}" />
+      <div class="media-body">
+        <table>
+          <tr>
+            <td>
+              <h2 class="account-heading" style="color: navy;">Name:</h2>
+            </td>
+            <td></td>
+            <td>
+              <h2 class="account-heading">{{ student.user }}</h2>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <h4 style="color: navy;">Address:</h4>
+            </td>
+            <td></td>
+            <td>
+              <h4>{{ student.address }}</h4>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <h4 style="color: navy;">Class:</h4>
+            </td>
+            <td></td>
+            <td>
+              <h4>{{ student.courses }}</h4>
+            </td>
+          </tr>
+          <tr style="border: 1px solid navy;">
+            <td>
+              <h4 style="color: navy;">About:</h4>
+            </td>
+            <td></td>
+            <td>
+              <h6>{{ student.description|safe }}</h6>
+            </td>
+        </table>
+      </div>
+    </div>
+  </center>
+  <div>
+    <center>
+      <a href="{% url 'check_topic' %}" class="btn btn-primary"
+        style="width: 40%; padding: 8px; margin-top: 5px;">Check class topics</a>
+    </center>
+    <center>
+      <a href="{% url 'download_reciept' %}" class="btn btn-primary"
+        style="width: 40%; padding: 8px; margin-top: 5px;">Download reciept</a>
+    </center>
+    <center>
+      <a href="{% url 'download_result' student.courses %}" class="btn btn-primary"
+        style="width: 40%; padding: 8px; margin-top: 5px;">Download result</a>
+    </center>
+    <center><a href="{% url 'logout' %}" class="btn btn-danger"
+        style="width: 40%; padding: 8px; margin-top: 5px;">Logout</a>
+    </center>
+  </div>
+  <br>
+  <hr>
+  <br>
+</div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="text-center fs-1" style="color: navy;"><u>Attendence</u></h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col"><center>Total Attendence: {{ attandance_count }}</center></th>
+          </tr>
+        </thead>
+      </table>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col"><center>Date</center></th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for attendence in attandance_new_ten %}
+          <tr>
+            <td><center>{{ attendence.date }}</center></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+
+{% endblock %}

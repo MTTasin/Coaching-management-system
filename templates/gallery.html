@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container-fluid">
+    <div class="head d-flex justify-content-center">
+        <h1 class="head1" style="color: navy; font-weight: bolder; margin-top: 100px;">আমাদের গ্যালারি</h1>
+        <hr style="color: navy; width: 50%; ">
+        <h1 class="head2" style="color: navy; font-weight: bolder; margin-top: 100px;">Our Gallery</h1>
+    </div>
+    <center>
+        <hr style="color: navy; width: 50%; ">
+    </center>
+    <div class="container-fluid">
+        <div class="skill-cards-wrapper">
+            <div class="row carditems">
+                {% for item in gallery %}
+                <div class="card"
+                    style="width: 18rem; float: left; margin: 20px; padding: 0; background-image: url(../media/static/img/recourse/card-back.jpg); border-radius: 20px;">
+                    <img src="{{ item.image.url }}" class="card-img-top" alt="{{ item.name }}">
+                    <div class="card-body">
+                        <center>
+                            <h5 class="card-title" style="color: navy; font-size: 20px;">{{ item.name }}</h5>
+                        </center>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+{% endblock content %}

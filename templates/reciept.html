@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Shikkhashala</title>
+</head>
+<body style="background-color: wheat;">
+    <center><img src="../static/img/name.png" alt="" style="width: 80%;"></center>
+    <center><h1 style="font-weight: bolder; color: navy; margin-top: 20px;">Payment Reciept</h1></center>
+
+    <table style="background-color: rgb(219, 219, 219); font-size: 15px;">
+        <thead>
+            <tr>
+                <th>Serial No</th>
+                <th>Description</th>
+                <th>Date</th>
+                <th>Amount</th>
+            </tr>
+            
+        </thead>
+        <tbody>
+            {% for reciept in payment %}
+            <tr style="text-align: center; margin: 10px;">
+                <td>{{ forloop.counter }}</td>
+                <td>{{ reciept.pay_for }}</td>
+                <td>{{ reciept.paid_date }}</td>
+                <td>{{ reciept.paid_amount }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr></tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td style="text-align: right; font-weight: bolder;">Total:</td>
+                <td style="text-align: center; font-weight: bolder;">{{ total }}</td>
+            </tr>
+        </tfoot>
+    </table>
+
+</body>
+</html>

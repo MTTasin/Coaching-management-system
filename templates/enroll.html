@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+<div class="container-fluid" style="background-color: aqua; padding-top: 50px; padding-bottom: 30px;">
+
+    <div class="container">
+        <div class="row" style="margin-top: 100px;">
+            <div class="col-md-6 col-md-6 align-items-stretch order-2 order-lg-1">
+                <div>
+                    <h3 class="img-fluid h1_enroll fs-1">{{ course.title }}</h3>
+                    <p class="fs-4" style="margin-top: 30px; color: red;">{{ course.marketing_line }}</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-md-6 align-items-stretch order-1 order-lg-2">
+                <div>
+                    <img src="{{ course.image.url }}" alt="" class="img-fluid">
+                </div>
+            </div>
+        </div>
+        <div class="row text-center" style="margin-top: 20px;">
+            <div class="col-6"><a href="{% url 'download_routine' course.id %}" class="btn btn-success" role="button" style="width: 80%;">Routine</a></div>
+            <div class="col-6"><p class="d-inline-flex gap-1" style="width: 80%;">
+                <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
+                  aria-controls="collapseExample" style="width: 100%;" onclick="scrolldiv()">
+                  Enroll Now
+                </a>
+              </p></div>
+        </div>
+    </div>
+
+</div>
+<div class="container" style="background-color: silver; padding-top: 50px; padding-bottom: 30px; border: 5px solid navy; border-radius: 10px;">
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="text-center fs-1" style="color: navy;"><u>কোর্সের বিবরণ</u></h2>
+            <p>{{ course.description|safe }}</p>
+        </div>
+    </div>
+    <div class="row text-center">
+        <div class="col-6"><p class="d-inline-flex gap-1" style="width: 80%;">
+            <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
+              aria-controls="collapseExample" style="width: 100%;" onclick="scrolldiv()">
+              Enroll Now
+            </a>
+          </p></div>
+        <div class="col-6"><a href="{% url 'download_routine' course.id %}" class="btn btn-success" role="button" style="width: 80%;">Routine</a></div>
+    </div>
+</div>
+
+
+  <div class="collapse" id="collapseExample">
+    <div class="card card-body">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <form method="post" enctype="multipart/form-data" id="ele">
+              {% csrf_token %}
+              <div>
+                <h5>
+                  {{ course.title }}
+                </h5>
+              </div>
+              <div>
+                <h5>Please Enter Your Details</h5>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="name" name="name" placeholder="" required>
+                <label for="name">Studnet name</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="email" class="form-control" id="email" name="email" placeholder="" required>
+                <label for="email">Email</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="phone" name="phone" placeholder="" required>
+                <label for="phone">Phone number</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="address" name="address" placeholder="" required>
+                <label for="address">Address</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="gurdian_name" name="gurdian_name" placeholder="" required>
+                <label for="gurdian_name">Gurdian Name</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="gurdian_phone" name="gurdian_phone" placeholder="" required>
+                <label for="gurdian_phone">Gurdian Phone number</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="gurdian_relation" name="gurdian_relation" placeholder="" required>
+                <label for="gurdian_relation">Gurdian Relation with Student</label>
+              </div>
+              <div>
+                <button type="submit" class="btn btn-primary" style="width: 100%; height: 30px;">Submit</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+
+
+
+
+{% endblock %}

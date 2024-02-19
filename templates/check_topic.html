@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<h1 style="margin-top: 100px; text-align: center; color: navy; font-weight: bolder;">Class topics</h1>
+<div class="container" style="margin-bottom: 20px;">
+    <div class="row">
+        {% for item in topics %}
+        <div class="card" style="width: 100%;">
+            <div class="card-body">
+                <h2 class="card-title text-center">{{ item.title }}</h2>
+                <h4 class="card-subtitle mb-2 text-body-secondary" style="text-align: right;">{{ item.date }}</h4>
+                <p class="card-text">{{ item.description | slice:"0:30" | safe }}</p>
+                <center><a href="{% url 'topic_details' item.id %}" class="btn btn-primary" style="width: 30%;">Details</a></center>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+
+
+{% endblock %}

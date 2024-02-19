@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<div class="content-section" style="margin-top: 100px;">
+  <center>
+    <div class="media">
+      <img class="rounded-circle account-img" src="{{ teacher.image.url }}" />
+      <div class="media-body">
+        <table>
+          <tr>
+            <td>
+              <h2 class="account-heading" style="color: navy;">Name:</h2>
+            </td>
+            <td></td>
+            <td>
+              <h2 class="account-heading">{{ teacher.user }}</h2>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <h4 style="color: navy;">About:</h4>
+            </td>
+            <td></td>
+            <td>
+              <h6>{{ teacher.description|safe }}</h6>
+            </td>
+        </table>
+      </div>
+    </div>
+  </center>
+  <div>
+    <center><a href="{% url 'attandance_for' %}" class="btn btn-primary"
+        style="width: 40%; padding: 8px; margin-top: 5px;">Add attandance</a></center>
+  </div>
+  <div>
+    <center><a href="{% url 'upload_topic' %}" class="btn btn-primary"
+        style="width: 40%; padding: 8px; margin-top: 5px;">Upload class topic</a></center>
+  </div>
+  <div>
+    <center><a href="{% url 'logout' %}" class="btn btn-danger"
+        style="width: 40%; padding: 8px; margin-top: 5px;">Logout</a>
+    </center>
+  </div>
+  <br>
+  <hr>
+  <br>
+</div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="text-center fs-1" style="color: navy;"><u>Attendence</u></h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">
+              <center>Total Attendence: {{ attandance_count }}</center>
+            </th>
+          </tr>
+        </thead>
+      </table>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">
+                <center>Date</center>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for attendence in attandance_new_ten %}
+            <tr>
+              <td>
+                <center>{{ attendence.date }}</center>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+
+
+  {% endblock %}

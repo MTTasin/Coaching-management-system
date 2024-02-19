@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+<center>
+    <div class="img-fluid">
+        <img src="{% static 'img/name.png' %}" alt="" class="img-fluid" style=" margin-top: 80px; width: 80%;">
+    </div>
+
+</center>
+<center>
+    <div class="text-center" style="margin-top: 50px; color: navy;"><h2>Enroll successful</h2></div>
+    <div class="text-center" style="margin-top: 50px; color: rgb(95, 95, 250);"><h2>Our agent will contact you very soon</h2></div>
+    <div><a href="{% url 'index' %}" class="btn btn-success" style="margin-top: 20px; margin-bottom: 20px; width: 200px;">Go to home</a></div>
+</center>
+
+
+
+
+
+{% endblock %}

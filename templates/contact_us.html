@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<center>
+    <div class="img-fluid">
+        <img src="{% static 'img/name.png' %}" alt="" class="img-fluid" style=" margin-top: 80px; height: 200px;">
+    </div>
+
+</center>
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-heading">
+                    <center style="margin-top: 30px;">
+                        <h2>আমাদের সাথে যোগাযোগ করুন</h2>
+                        <h4><strong>Mobile Number:</strong> +880 1860-140437</h4>
+                        <h4><strong>Mail:</strong> 8vFkA@example.com</h4>
+                        <h4><strong>Address:</strong>মীরপাড়া, (৪-তলা), আতুরারডিপো, বায়েজিদ, চট্টগ্রাম</h4>
+                        <a href="https://www.facebook.com/profile.php?id=61552197446134&sk=friends_likes"><img src="{% static 'img/Facebook.png' %}" alt="Facebook" class="img-fluid" style="height: 80px; width: 80px;"></a>
+                    </center>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="text-center" style="margin-top: 50px; color: navy;"><h2>অথবা নিচের ফর্ম পূরণ করুন</h2></div>
+            <form action="" method="post" enctype="multipart/form-data" style="margin-top: 50px; margin-bottom: 50px; text-align: center; width: 100%;">
+                {% csrf_token %}
+                <input type="text" name="name" id="name" placeholder="নাম" style="padding: 10px; width: 100%;" required class="form-control mb-3 mt-3"/><br>
+                <input type="email" name="email" id="email" placeholder="ইমেইল" style="padding: 10px; width: 100%;" required class="form-control mb-3 mt-3"/><br>
+                <input type="text" name="subject" id="subject" placeholder="বিষয়" style="padding: 10px; width: 100%;" required class="form-control mb-3 mt-3"/><br>
+                <textarea name="message" id="message" placeholder="কোন জিনিসটি জানতে চাচ্ছেন?" style="padding: 10px; width: 100%;" required class="form-control mb-3 mt-3"></textarea><br>
+                <input type="submit" value="Submit" class="btn btn-primary" style="width: 100%;"/>
+            </form>
+        </div>
+    </div>
+</section>
+
+
+{% endblock content %}

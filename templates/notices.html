@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container" style="margin-top: 100px;">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="h1_enroll">Notices</h1>
+        </div>
+    </div>
+    {% if notices %}
+    <div class="row">
+        <div class="col-md-12">
+            <ol class="list-group list-group-numbered">
+                {% for item in notices %}
+                <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div class="ms-2 me-auto">
+                        <div class="fw-bold" style="color: navy;">{{ item.title }}</div>
+                        <div><span class="badge bg-primary rounded-pill">{{ item.date }}</span></div>
+                        {{ item.description|slice:"0:50"|safe }}
+                    </div>
+                    
+                    <div><a href="{% url 'notices_detail' item.id %}" class="btn btn-primary stretched-link">Check</a></div>
+                </li>
+                {% endfor %}
+            </ol>
+        </div>
+    </div>
+    {% else %}
+    <div class="row">
+        <div class="col-md-12">
+            <p style="color: red; text-align: center; font-weight: bolder; font-size: 30px;">No notices available</p>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
